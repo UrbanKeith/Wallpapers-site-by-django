@@ -1,0 +1,26 @@
+{% extends "base_template.html" %}
+
+{% block title %}
+Результаты загрузки
+{% endblock %}
+
+{% block content %}
+<div class="conteiner_fluid" name="results">
+  <div class="row">
+    <div class="col">Название</div>
+    <div class="col">Размер</div>
+    <div class="col">Источник</div>
+  </div>
+
+  {% for image in result %}
+    <div class="row">
+      {% for item in image %}
+      <div class="col"><p>{{item}}</p></div>
+      {%endfor%}
+    </div>
+
+
+  {%endfor%}
+</div>
+
+{% endblock%}

@@ -1,0 +1,13 @@
+{% extends "base_template.html" %}
+
+{% block title %}
+Ошибка
+{% endblock %}
+
+{% block content %}
+  <p>{{error_massage}}</p>
+  <form action="{% url 'wallpapers_main:error_redirect'}" method="POST">
+    <input type="text" name="link" value="{{error_redirect}}" hidden>
+    <input type="submit" value="Продолжить">
+  </form>
+{% endblock %}

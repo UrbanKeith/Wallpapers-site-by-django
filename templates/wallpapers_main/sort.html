@@ -1,0 +1,25 @@
+{% extends "base_template.html" %}
+
+{% block title %}
+Выбор категории
+{% endblock %}
+
+{% block content %}
+  <div name=image class="conteiner">
+    <img src="{{image.source}}" class="img-thumbnail">
+  </div>
+
+  <form name="category_choice" action="{% url 'wallpapers_main:category_take' %}" method="post">
+    <div class="form-group">
+      {% csrf_token %}
+      <input name="source" type="text" hidden value="{{image}}">
+      <select name="category" multiple class="form-control">
+        {% for category in categories %}
+        <option value="{{category.category_link_name}}">{{category.category_name}}</option>
+        {% endfor %}
+      </select>
+      <!-- <button form="category_choice" type="submit" name="button" class="form-control">Принять</button> -->
+      <input type="submit" value="Принять" class="form-control">
+    </div>
+  </form>
+{% endblock %}

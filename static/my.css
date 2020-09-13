@@ -1,0 +1,55 @@
+body{
+  background: #65AFFF;
+  color: #007BFF
+}
+
+.navpanel{
+  height: 100px
+}
+.navpanel-btn{
+  background-color: rgba(255,255,255, 0.5);
+  border-bottom-right-radius: 15px;
+  border-bottom: 3px solid rgba(0,0,0, 0.1);
+  border-right: 3px solid rgba(0,0,0, 0.1);
+}
+
+.headling_text{
+  color: #007BFF;
+}
+
+#content_conteiner{
+  background-color: rgba(255,255,255, 0.5);
+  border-radius: 15px;
+  padding: 15px 15px;
+  margin: 15px 0px
+}
+
+
+.hide {
+    display: none;
+}
+.hide + label ~ div{
+    display: none;
+}
+/* оформляем текст label */
+.hide + label {
+    border-bottom: 1px dotted green;
+    padding: 0;
+    color: green;
+    cursor: pointer;
+    display: inline-block;
+}
+/* вид текста label при активном переключателе */
+.hide:checked + label {
+    color: red;
+    border-bottom: 0;
+}
+/* когда чекбокс активен показываем блоки с содержанием  */
+.hide:checked + label + div {
+    display: block;
+    background: #efefef;
+    -moz-box-shadow: inset 3px 3px 10px #7d8e8f;
+    -webkit-box-shadow: inset 3px 3px 10px #7d8e8f;
+    box-shadow: inset 3px 3px 10px #7d8e8f;
+    padding: 10px;
+}

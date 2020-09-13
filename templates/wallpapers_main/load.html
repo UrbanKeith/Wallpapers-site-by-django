@@ -1,0 +1,37 @@
+{% extends "base_template.html" %}
+
+{% block title %}
+Загрузка картинки
+{% endblock %}
+
+{% block content %}
+
+  <!-- <div name="upload_file" class="conteiner-fluid"> -->
+    <!-- <h3>Загрузка с жесткого диска</h3>
+    <form action="{% url 'wallpapers_main:load_result' %}" enctype="multipart/form-data" class="form-group" method="post">
+      {%csrf_token%}
+      <input name="name" type="text"  placeholder="Название" class="form-control">
+      <input name="load_select" type="text" hidden value="upload_file">
+      <select name="size" class="form-control" >
+        <option selected>Разрешение</option>
+        {% for size in sizes %}
+        <option value = {{size}}>{{ size }}</option>
+        {% endfor %}
+      </select>
+      <input name="file" type="file" class="form-control">
+      <input type="submit" value="Загрузить" class="form-control">
+    </form>
+  </div> -->
+
+  <div name="parse_site" class="conteiner-fluid">
+    <h3>Загрузить с сайта wallpaperscraft.ru</h3>
+    <form action="{% url 'wallpapers_main:load_result' %}" class="form-group" method="post">.
+      {%csrf_token%}
+      <input name="url" placeholder="Адрес раздела" type="text" class="form-control">
+      <input name="load_select" type="text" hidden value="parse_site">
+      <input name="duration" placeholder="Кол-во страниц" type="text" class="form-control">
+      <input type="submit" value="Загрузить" class="form-control">
+    </form>
+  </div>
+
+{% endblock%}

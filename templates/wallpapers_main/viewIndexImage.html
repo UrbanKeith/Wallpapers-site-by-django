@@ -1,0 +1,16 @@
+{% extends "base_template.html" %}
+
+{% block title %}
+{{image_name}}
+{% endblock %}
+
+{% block content %}
+<img src="{{preview_image.source}}" class="img-thumbnail"><br>
+<span>
+  Выберите разрешение: 
+  {% for image_source in image_sources %}
+    <a href="{{image_source.source}}">{{image_source.size}}</a>
+  {% endfor %}
+</span>
+
+{% endblock%}

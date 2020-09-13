@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}Мой сайт{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'my.css' %}" type="text/css">
+    <!-- <script src="bootstrap/js/bootstrap.js"></script> -->
+  </head>
+  <body>
+    <div id="navpanel" class="conteiner navpanel">
+      <div class="row ">
+        <div class="col-auto">
+          <div class="row navpanel-btn">
+            <div class="col-auto ">
+              <h2>
+                <a href="{% url 'wallpapers_main:recommend' %}" class="navbuttom">Дом</a>
+              </h2>
+            </div>
+            <div class="col-auto ">
+              <h2>
+                <a href="{% url 'wallpapers_main:sort' %}" class="navbuttom">Категоризировать</a>
+              </h2>
+            </div>
+            <div class="col-auto ">
+              <h2>
+                <a href="{% url 'wallpapers_main:load' %}" class="navbuttom">Добавить</a>
+              </h2>
+            </div>
+          </div>
+        </div>
+        <div class="col"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="content" class="row">
+      <div class="col"></div>
+        <div class="col-10">
+          <div id="content_conteiner" class="conteiner">
+            {% block content %}
+            {% endblock%}
+          </div>
+        </div>
+        <div class="col"></div>
+    </div>
+  </body>
+</html>
