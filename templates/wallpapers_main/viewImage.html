@@ -4,28 +4,24 @@
 {{page_name}}
 {% endblock %}
 
+{# Список картинок #}
 {% block content %}
-<div class="row">
-  <div class="col-2">
-    <a href="{% url 'wallpapers_main:category' category='all' %}" class="btn btn-primary">Все</a>
-    {% for category in all_category %}
-        <a href="{% url 'wallpapers_main:category' category.category_link_name %}" class="btn btn-primary">{{category.category_name}}</a>
-    {% endfor %}
-  </div>
-  <div class="col-10">
-    <div class="row">
-      {% for image in images %}
-      <div class="col-3">
-        {% if not image %} Картинки не найдены {% endif %}
-        <a href="{% url 'wallpapers_main:image_page' image.name %}">
-          <img src="{{image.source}}" class="img-thumbnail">
-        </a>
-      </div>
-      {% endfor %}
-      <div name="nav_page" class="col-12">
-      </div>
+  <div class="col">
+    <div name="images" class="row">
+          {% if not is_content %}
+              <p2>Картинки не найдены</p2>
+          {% else %}
+              {# Наполнение картинками #}
+              {% for image in images %}
+                  <div id="image_box" class="col-3">
+                      <a href="{% url 'wallpapers_main:image_page' image.name %}">
+                          <img src="{{image.source}}" class="img-fluid"></a>
+                  </div>
+              {% endfor %}
+          {% endif %}
     </div>
-    <div name="page_nav" class="col-12">
+    {% if is_paginate %}
+    <div name="page_nav" class="raw">
         {% if images.has_previous %}
             <a href="{% url 'wallpapers_main:category_page' current_category images.previous_page_number %}">Назад</a>
         {% endif %}
@@ -34,6 +30,21 @@
             <a href="{% url 'wallpapers_main:category_page' current_category images.next_page_number %}">Вперед</a>
         {% endif %}
     </div>
+    {% endif %}
   </div>
 </div>
 {% endblock%}
+
+{#  Список категорий  #}
+{% block left_bar %}
+    <div id="side_bar_content" class="col-2">
+        <div class="row">
+            <div class="col btn-group-vertical">
+                <a href="{% url 'wallpapers_main:category' category='all' %}" class="btn btn-primary">Все</a>
+                {% for category in all_category %}
+                    <a href="{% url 'wallpapers_main:category' category.category_link_name %}" class="btn btn-primary">{{category.category_name}}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

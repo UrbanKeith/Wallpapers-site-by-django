@@ -87,7 +87,6 @@ def get_all_images(page=1):
 
 def get_image_by_category(category, page=1):
     '''return context with all category is exist and instace of Paginator, when contains all image by category'''
-    context = {}
     IMAGES_ON_PAGE = 24
     all_category = Category.objects.all()
     images = Source.objects.filter(name__categories__category_link_name=category).filter(size='1280x720')
@@ -95,7 +94,12 @@ def get_image_by_category(category, page=1):
     page_name = category_name.category_name
     paginator = Paginator(images, IMAGES_ON_PAGE)
     page_obj = paginator.get_page(page)
-    context.update({'all_category':all_category, 'images':page_obj, 'page_name':page_name, 'current_category':category})
+    context = {'all_category': all_category,
+               'images': page_obj,
+               'page_name': page_name,
+               'current_category': category,
+               'is_content': True if page_obj else False,
+               'is_paginate': True if paginator.count > 1 else False}
     return context
 
 

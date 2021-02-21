@@ -19,9 +19,25 @@ body{
 
 #content_conteiner{
   background-color: rgba(255,255,255, 0.5);
-  border-radius: 15px;
+  border-radius: 5px;
   padding: 15px 15px;
   margin: 15px 0px
+}
+
+#side_bar_empty{
+  padding: 15px 15px;
+  margin: 15px 15px 15px 0px;
+}
+
+#side_bar_content{
+  background-color: rgba(255,255,255, 0.5);
+  border-radius: 5px;
+  padding: 15px 15px;
+  margin: 15px 15px 15px 0px;
+}
+
+#image_box{
+    padding: 1px;
 }
 
 
